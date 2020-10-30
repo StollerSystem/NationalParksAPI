@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -67,6 +68,14 @@ namespace NationalParks.Controllers
       var parkToDelete = _db.NationalParks.FirstOrDefault(entry => entry.NationalParkId == id);
       _db.NationalParks.Remove(parkToDelete);
       _db.SaveChanges();
+    }
+    [HttpGet("Random")]
+    public IEnumerable<NationalPark> Random()
+    {
+      var count = _db.NationalParks.Count();
+      Random ran = new Random();
+      int skipTo = ran.Next(count);
+      return _db.NationalParks.OrderBy(r => Guid.NewGuid()).Skip(skipTo).Take(1);
     }
   }
 }
