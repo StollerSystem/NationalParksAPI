@@ -10,10 +10,8 @@ namespace NationalParks.Models
     [Required]
     public string StateParkDescription { get; set; }
     [Required]
-    public string State { get; set; }
-    
-    public string DateEstablished { get; set; }
-        
+    public string State { get; set; }    
 
+    public bool YearRound { get; set; } 
   }
 }

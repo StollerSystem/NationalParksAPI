@@ -41,6 +41,7 @@ namespace StateParks.Controllers
       {
         query = query.Where(entry => entry.State.Contains(state));
       }
+       
       return query.ToList();
     }
 

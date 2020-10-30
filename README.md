@@ -120,6 +120,7 @@ DELETE /api/stateparks/{id}
 | :---: | :---: | :---: | :---: | --- |
 | name | string | none | false | Return matches that contain name.
 | state | string | none | false | Return matches that contain state. |
+| date | string | none | false | Return matches that contain date. |
 
 
 #### Example Query
