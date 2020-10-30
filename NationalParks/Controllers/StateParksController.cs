@@ -34,12 +34,12 @@ namespace StateParks.Controllers
 
       if (name != null)
       {
-        query = query.Where(entry => entry.StateParkName == name);
+        query = query.Where(entry => entry.StateParkName.Contains(name));
       }
 
       if (state != null)
       {
-        query = query.Where(entry => entry.State == state);
+        query = query.Where(entry => entry.State.Contains(state));
       }
       return query.ToList();
     }
