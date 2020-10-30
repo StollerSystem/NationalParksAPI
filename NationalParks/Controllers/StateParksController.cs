@@ -40,8 +40,25 @@ namespace StateParks.Controllers
       if (state != null)
       {
         query = query.Where(entry => entry.State.Contains(state));
+      }       
+      return query.ToList();
+    }
+
+    [HttpGet("yearround")] 
+    public ActionResult<IEnumerable<StatePark>> YearRound(string name, string state) 
+    {
+      var query = _db.StateParks.AsQueryable();
+
+      if (name != null)
+      {
+        query = query.Where(entry => entry.StateParkName.Contains(name));
       }
-       
+
+      if (state != null)
+      {
+        query = query.Where(entry => entry.State.Contains(state));
+      }      
+      query = query.Where(entry => entry.YearRound == true); 
       return query.ToList();
     }
 
