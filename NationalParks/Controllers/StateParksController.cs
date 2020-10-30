@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -67,6 +68,15 @@ namespace StateParks.Controllers
       var parkToDelete = _db.StateParks.FirstOrDefault(entry => entry.StateParkId == id);
       _db.StateParks.Remove(parkToDelete);
       _db.SaveChanges();
+    }
+
+    [HttpGet("Random")]
+    public IEnumerable<StatePark> Random()
+    {
+      var count = _db.StateParks.Count();
+      Random ran = new Random();
+      int index = ran.Next(count);      
+      return _db.StateParks.OrderBy(r => Guid.NewGuid()).Skip(index).Take(1);      
     }
   }
 }
