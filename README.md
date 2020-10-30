@@ -35,6 +35,7 @@ Base URL: `https://localhost:5000`
 #### HTTP Request Structure
 ```
 GET /api/{component}
+GET /api/{component}/search
 GET /api/{component}/random
 POST /api/{component}
 GET /api/{component}/{id}
@@ -68,8 +69,8 @@ DELETE /api/nationalparks/{id}
 #### Parameters for /api/nationalparks/search 
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
-| name | string | none | false | Return matches by name.
-| location | string | none | false | Return matches by location. |
+| name | string | none | false | Return matches that contain name.
+| location | string | none | false | Return matches that contain location. |
 
 
 #### Example Query

@@ -34,12 +34,12 @@ namespace NationalParks.Controllers
 
       if (name != null)
       {
-        query = query.Where(entry => entry.NationalParkName == name);
+        query = query.Where(entry => entry.NationalParkName.Contains(name));
       }
 
       if (location != null)
       {
-        query = query.Where(entry => entry.NationalParkLocation == location);
+        query = query.Where(entry => entry.NationalParkLocation.Contains(location));
       }
       return query.ToList();
     }
