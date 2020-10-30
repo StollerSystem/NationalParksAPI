@@ -174,7 +174,7 @@ Returns a random state park from the database.
 * After installation, type in 'dotnet build'.
 * Use command 'dotnet ef database update' to scaffold the database for the project.
 * Run the program with 'dotnet run' in the terminal.
-* If you don't have it already, create an "appsettings.json" file in the "ben_stoller" directory and Insert the code below with your user name and password for   MySQL:
+* If you don't have it already, create an "appsettings.json" file in the "NationalParks" directory and Insert the code below with your user name and password for   MySQL:
 ```
 {
   "AppSettings": {
