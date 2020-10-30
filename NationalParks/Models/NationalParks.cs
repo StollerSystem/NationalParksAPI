@@ -2,19 +2,19 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NationalParks.Models
 {
-  public class Park
+  public class NationalPark
   {
-    public int ParkId { get; set; }
+    public int NationalParkId { get; set; }
     [Required]
-    public string ParkName { get; set; }
+    public string NationalParkName { get; set; }
     [Required]
-    public string ParkDescription { get; set; }
+    public string NationalParkDescription { get; set; }
     [Required]
-    public string ParkLocation { get; set; }
+    public string NationalParkLocation { get; set; }
     [Required]
     public string DateEstablished { get; set; }
     [Required]
-    public double ParkArea { get; set; }
+    public double NationalParkArea { get; set; }
     
     public int AnnualVisitors { get; set; }
 

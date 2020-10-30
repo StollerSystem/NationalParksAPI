@@ -27,12 +27,12 @@ namespace NationalParks.Controllers
 
       if (name != null)
       {
-        query = query.Where(entry => entry.ParkName == name);
+        query = query.Where(entry => entry.NationalParkName == name);
       }
 
       if (location != null)
       {
-        query = query.Where(entry => entry.ParkLocation == location);
+        query = query.Where(entry => entry.NationalParkLocation == location);
       }
       
 
@@ -50,13 +50,13 @@ namespace NationalParks.Controllers
     [HttpGet("{id}")]
     public ActionResult<NationalPark> Get(int id)
     {
-      return _db.NationalParks.FirstOrDefault(entry => entry.ParkId == id);
+      return _db.NationalParks.FirstOrDefault(entry => entry.NationalParkId == id);
     }
     
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] NationalPark park)
     {
-      park.ParkId = id;
+      park.NationalParkId = id;
       _db.Entry(park).State = EntityState.Modified;
       _db.SaveChanges();
     }
@@ -64,7 +64,7 @@ namespace NationalParks.Controllers
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
-      var parkToDelete = _db.NationalParks.FirstOrDefault(entry => entry.arkId == id);
+      var parkToDelete = _db.NationalParks.FirstOrDefault(entry => entry.NationalParkId == id);
       _db.NationalParks.Remove(parkToDelete);
       _db.SaveChanges();
     }
