@@ -56,6 +56,7 @@ Access information on national parks in the USA.
 #### HTTP Request
 ```
 GET /api/nationalparks
+GET /api/nationalparks/search
 GET /api/nationalparks/random
 POST /api/nationalparks
 GET /api/nationalparks/{id}
@@ -64,7 +65,7 @@ DELETE /api/nationalparks/{id}
 
 ```
 
-#### GET Path Parameters for /api/nationalparks
+#### Parameters for /api/nationalparks/search 
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
 | name | string | none | false | Return matches by name.
@@ -73,7 +74,7 @@ DELETE /api/nationalparks/{id}
 
 #### Example Query
 ```
-http://localhost:5000/api/nationalparks/?name=yellowstone
+http://localhost:5000/api/nationalparks/search/?name=yellowstone
 ```
 
 #### Sample JSON Response

@@ -21,7 +21,14 @@ namespace NationalParks.Controllers
     }
     
     [HttpGet] 
-    public ActionResult<IEnumerable<NationalPark>> Get(string name, string location)
+    public ActionResult<IEnumerable<NationalPark>> Get()
+    {
+      var query = _db.NationalParks.AsQueryable();     
+      return query.ToList();
+    }
+
+    [HttpGet("search")] 
+    public ActionResult<IEnumerable<NationalPark>> Search(string name, string location)
     {
       var query = _db.NationalParks.AsQueryable();
 
@@ -43,7 +50,7 @@ namespace NationalParks.Controllers
       return _db.NationalParks.FirstOrDefault(entry => entry.NationalParkId == id);
     }
 
-    [HttpGet("Random")]
+    [HttpGet("random")]
     public IEnumerable<NationalPark> Random()
     {
       var count = _db.NationalParks.Count();
