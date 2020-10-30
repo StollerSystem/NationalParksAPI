@@ -7,7 +7,7 @@ namespace NationalParks.Models
     public string ParkDescription { get; set; }
     public string ParkLocation { get; set; }
     public string DateEstablished { get; set; }
-    public decimal ParkArea { get; set; }
+    public double ParkArea { get; set; }
     public int AnnualVisitors { get; set; }
 
   }
