@@ -10,20 +10,20 @@ namespace NationalParks.Controllers
   [Authorize]
   [Route("api/[controller]")]
   [ApiController]
-  public class ParksController : ControllerBase
+  public class NationalParksController : ControllerBase
   {
     private NationalParksContext _db;
 
-    public ParksController(NationalParksContext db)
+    public NationalParksController(NationalParksContext db)
     {
       _db = db;
     }
 
     
     [HttpGet] 
-    public ActionResult<IEnumerable<Park>> Get(string name, string location) //ADD MORE!
+    public ActionResult<IEnumerable<NationalPark>> Get(string name, string location) //ADD MORE!
     {
-      var query = _db.Parks.AsQueryable();
+      var query = _db.NationalParks.AsQueryable();
 
       if (name != null)
       {
@@ -41,20 +41,20 @@ namespace NationalParks.Controllers
 
     
     [HttpPost]
-    public void Post([FromBody] Park park)
+    public void Post([FromBody] NationalPark park)
     {
-      _db.Parks.Add(park);
+      _db.NationalParks.Add(park);
       _db.SaveChanges();
     }
     
     [HttpGet("{id}")]
-    public ActionResult<Park> Get(int id)
+    public ActionResult<NationalPark> Get(int id)
     {
-      return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+      return _db.NationalParks.FirstOrDefault(entry => entry.ParkId == id);
     }
     
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] Park park)
+    public void Put(int id, [FromBody] NationalPark park)
     {
       park.ParkId = id;
       _db.Entry(park).State = EntityState.Modified;
@@ -64,8 +64,8 @@ namespace NationalParks.Controllers
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
-      var parkToDelete = _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
-      _db.Parks.Remove(parkToDelete);
+      var parkToDelete = _db.NationalParks.FirstOrDefault(entry => entry.arkId == id);
+      _db.NationalParks.Remove(parkToDelete);
       _db.SaveChanges();
     }
   }
