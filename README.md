@@ -39,6 +39,7 @@ POST /api/{component}
 GET /api/{component}/{id}
 PUT /api/{component}/{id}
 DELETE /api/{component}/{id}
+
 ```
 
 #### Example Query
@@ -54,10 +55,12 @@ Access information on national parks in the USA.
 #### HTTP Request
 ```
 GET /api/nationalparks
+GET /api/nationalparks/random
 POST /api/nationalparks
 GET /api/nationalparks/{id}
 PUT /api/nationalparks/{id}
 DELETE /api/nationalparks/{id}
+
 ```
 
 #### Path Parameters
@@ -84,7 +87,11 @@ http://localhost:5000/api/nationalparks/?name=yellowstone
       "annualVisitors": 4020288
 }
 ```
-
+#### Random Endpoint
+```
+http://localhost:5000/api/nationalparks/random
+```
+Returns a random national park from the database.
 ..........................................................................................
 
 ### State Parks
@@ -93,10 +100,12 @@ Access information about state parks.
 #### HTTP Request
 ```
 GET /api/stateparks
+GET /api/stateparks/random
 POST /api/stateparks
 GET /api/stateparks/{id}
 PUT /api/stateparks/{id}
 DELETE /api/stateparks/{id}
+
 ```
 
 #### Path Parameters
@@ -121,6 +130,11 @@ http://localhost:5000/api/stateparks/?state=oregon
       "dateEstablished": null
 }
 ```
+#### Random Endpoint
+```
+http://localhost:5000/api/stateparks/random
+```
+Returns a random state park from the database.
 
 ..........................................................................................
 

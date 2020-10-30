@@ -75,8 +75,7 @@ namespace NationalParks.Controllers
       var count = _db.NationalParks.Count();
       Random ran = new Random();
       int index = ran.Next(count);      
-      return _db.NationalParks.OrderBy(r => Guid.NewGuid()).Skip(index).Take(1);
-      
+      return _db.NationalParks.OrderBy(r => Guid.NewGuid()).Skip(index).Take(1);      
     }
   }
 }
