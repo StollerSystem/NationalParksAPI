@@ -21,7 +21,7 @@ namespace NationalParks.Controllers
     }
     
     [HttpGet] 
-    public ActionResult<IEnumerable<NationalPark>> Get(string name, string location) //ADD MORE!
+    public ActionResult<IEnumerable<NationalPark>> Get(string name, string location)
     {
       var query = _db.NationalParks.AsQueryable();
 

@@ -13,7 +13,7 @@ Once you have obtained a bearer token (see below), you can add search parameters
 ## API Documentation 
 
 ### Using Swagger Documentation 
-To explore the National Parks API utilizing Nswag, start the project with "dotnet run" and navigate to the following URL in your browser: "http://localhost:5000/swagger"
+To explore the National Parks API utilizing Nswag, start the project with "dotnet run" (see Setup/Installation below) and navigate to the following URL in your browser: "http://localhost:5000/swagger"
 
 ### Using the JSON Web Token (JWT)
 In order to be authorized to use the POST, PUT, DELETE functionality of the API, you will need to authenticate yourself through Postman.
@@ -21,7 +21,7 @@ In order to be authorized to use the POST, PUT, DELETE functionality of the API,
 * Add the following to the request as JSON raw data in the Body tab:
 ```
 {
-    "UserName": "ParksAdmin",
+    "Username": "ParksAdmin",
     "Password": "epicodus"
 }
 ```
@@ -35,6 +35,7 @@ Base URL: `https://localhost:5000`
 #### HTTP Request Structure
 ```
 GET /api/{component}
+GET /api/{component}/random
 POST /api/{component}
 GET /api/{component}/{id}
 PUT /api/{component}/{id}
@@ -92,6 +93,7 @@ http://localhost:5000/api/nationalparks/?name=yellowstone
 http://localhost:5000/api/nationalparks/random
 ```
 Returns a random national park from the database.
+
 ..........................................................................................
 
 ### State Parks
@@ -156,7 +158,7 @@ Returns a random state park from the database.
 
 ## Known Bugs
 
-
+None atm
 
 ## Support and contact details
 
@@ -164,7 +166,7 @@ https://github.com/StollerSystem
 
 ## Technologies Used
 
-C#/.NET, Entity Framework Core, MySql, Nswag, 
+C#/.NET, Entity Framework Core, MySql, Nswag, Postman
 
 ### License
 

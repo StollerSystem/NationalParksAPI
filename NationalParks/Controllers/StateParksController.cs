@@ -21,7 +21,7 @@ namespace StateParks.Controllers
     }
     
     [HttpGet] 
-    public ActionResult<IEnumerable<StatePark>> Get(string name, string state) //ADD MORE!
+    public ActionResult<IEnumerable<StatePark>> Get(string name, string state) 
     {
       var query = _db.StateParks.AsQueryable();
 
