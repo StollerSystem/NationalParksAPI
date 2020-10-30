@@ -21,7 +21,7 @@ namespace StateParks.Controllers
 
     
     [HttpGet] 
-    public ActionResult<IEnumerable<StatePark>> Get(string name, string location) //ADD MORE!
+    public ActionResult<IEnumerable<StatePark>> Get(string name, string state) //ADD MORE!
     {
       var query = _db.StateParks.AsQueryable();
 
@@ -30,9 +30,9 @@ namespace StateParks.Controllers
         query = query.Where(entry => entry.StateParkName == name);
       }
 
-      if (location != null)
+      if (state != null)
       {
-        query = query.Where(entry => entry.State == location);
+        query = query.Where(entry => entry.State == state);
       }
       
 

@@ -6,18 +6,9 @@
 
 ## Description
 
-An API application that lets a user access a database of national and state parks. Here is a sample JSON respone and what the properties the Parks model has: 
-```
-{
-        "parkId": 1,
-        "parkName": "YellowStone",
-        "parkDescription": "OLD FAITHFULL YALL",
-        "parkLocation": "Wyoming, Montana, Idaha",
-        "dateEstablished": "March 1, 1872",
-        "parkArea": 2219790.71,
-        "annualVisitors": 4020288
-}
-```
+An API application that lets a user access a database of national and state parks. 
+
+
 ## API Documentation 
 
 ### Using Swagger Documentation 
@@ -51,90 +42,82 @@ DELETE /api/{component}/{id}
 
 #### Example Query
 ```
-https://localhost:5000/api/recipe/131
-```
-
-#### Sample JSON Response
-```
-{
-    "Id": 131,
-    "Name": "Spiced Cold Brew",
-    "Ingredient": "Cinnamon, Nutmeg, Cayenne",
-    "Recipe Text: "Coffee is the answer to all solutions in the known universe as proven by leading scientists.",
-}
+https://localhost:5000/api/nationalparks/2
 ```
 
 ..........................................................................................
 
-### Coffee Beans
-Access information on coffee beans from around the world.
+### National Parks
+Access information on national parks in the USA.
 
 #### HTTP Request
 ```
-GET /api/bean
-POST /api/bean
-GET /api/bean/{id}
-PUT /api/bean/{id}
-DELETE /api/bean/{id}
+GET /api/nationalparks
+POST /api/nationalparks
+GET /api/nationalparks/{id}
+PUT /api/nationalparks/{id}
+DELETE /api/nationalparks/{id}
 ```
 
 #### Path Parameters
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
 | name | string | none | false | Return matches by name.
-| origin | string | none | false | Return any bean from a specific country or region of origin. |
-| flavor | string | none | false | Return bean matches with a specific flavor profile. |
+| location | string | none | false | Return matches by location. |
+
 
 #### Example Query
 ```
-https://localhost:5000/api/bean/?origin=brazil&flavor=robust
+http://localhost:5000/api/nationalparks/?name=yellowstone
 ```
 
 #### Sample JSON Response
 ```
-{
-    "Id": 114,
-    "Name": "Café Saboroso",
-    "Origin": "Brazil",
-    "Flavor: "Sweet, Cherry, Robust"
+ {
+      "nationalParkId": 1,
+      "nationalParkName": "YellowStone",
+      "nationalParkDescription": "test",
+      "nationalParkLocation": "Wyoming, Montana, Idaha",
+      "dateEstablished": "March 1, 1872",
+      "nationalParkArea": 2219790.71,
+      "annualVisitors": 4020288
 }
 ```
 
 ..........................................................................................
 
-### Beverages
-Access information about popular coffee beverages.
+### State Parks
+Access information about state parks.
 
 #### HTTP Request
 ```
-GET /api/beverage
-POST /api/beverage
-GET /api/beverage/{id}
-PUT /api/beverage/{id}
-DELETE /api/beverage/{id}
+GET /api/stateparks
+POST /api/stateparks
+GET /api/stateparks/{id}
+PUT /api/stateparks/{id}
+DELETE /api/stateparks/{id}
 ```
 
 #### Path Parameters
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
 | name | string | none | false | Return matches by name.
-| temp | string | none | false | Return beverage matches with a specific served temperature. |
-| topping | string | none | false | Return beverage matches with a specific topping. |
-| year | int | none | false | Return beverage matches with a specific year of invention. |
+| state | string | none | false | Return matches by state. |
+
 
 #### Example Query
 ```
-https://localhost:5000/api/beverage/?name=latte&temp=iced&year=1840
+http://localhost:5000/api/stateparks/?state=oregon
 ```
 
 #### Sample JSON Response
 ```
 {
-    "Id": 33,
-    "Name": "Iced Latte",
-    "Temp": "Iced",
-    "Topping: "Wipped Cream",
-    "Year": 1840
+      "stateParkId": 1,
+      "stateParkName": "Goose Lake",
+      "stateParkDescription": "test",
+      "state": "Oregon",
+      "dateEstablished": null
 }
 ```
 
