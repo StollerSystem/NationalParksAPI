@@ -21,7 +21,14 @@ namespace StateParks.Controllers
     }
     
     [HttpGet] 
-    public ActionResult<IEnumerable<StatePark>> Get(string name, string state) 
+    public ActionResult<IEnumerable<StatePark>> Get() 
+    {
+      var query = _db.StateParks.AsQueryable();      
+      return query.ToList();
+    }
+
+    [HttpGet("search")] 
+    public ActionResult<IEnumerable<StatePark>> Search(string name, string state) 
     {
       var query = _db.StateParks.AsQueryable();
 
@@ -36,6 +43,8 @@ namespace StateParks.Controllers
       }
       return query.ToList();
     }
+
+    
 
     [HttpGet("{id}")]
     public ActionResult<StatePark> Get(int id)

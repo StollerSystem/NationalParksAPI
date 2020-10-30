@@ -103,6 +103,7 @@ Access information about state parks.
 #### HTTP Request
 ```
 GET /api/stateparks
+GET /api/stateparks/search
 GET /api/stateparks/random
 POST /api/stateparks
 GET /api/stateparks/{id}
@@ -111,7 +112,7 @@ DELETE /api/stateparks/{id}
 
 ```
 
-#### GET Path Parameters for /api/stateparks
+####  Parameters for /api/stateparks/search
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
 | name | string | none | false | Return matches by name.
@@ -120,7 +121,7 @@ DELETE /api/stateparks/{id}
 
 #### Example Query
 ```
-http://localhost:5000/api/stateparks/?state=oregon
+http://localhost:5000/api/stateparks/search/?state=oregon
 ```
 
 #### Sample JSON Response
