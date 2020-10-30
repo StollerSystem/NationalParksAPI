@@ -10,7 +10,7 @@ namespace NationalParks.Models
         }
 
         public DbSet<NationalPark> NationalParks { get; set; }
-        public DbSet<NationalPark> StateParkParks { get; set; }
+        public DbSet<StatePark> StateParks { get; set; }
         
 
         protected override void OnModelCreating(ModelBuilder builder)
