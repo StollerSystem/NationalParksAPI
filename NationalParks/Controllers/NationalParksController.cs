@@ -19,7 +19,6 @@ namespace NationalParks.Controllers
     {
       _db = db;
     }
-
     
     [HttpGet] 
     public ActionResult<IEnumerable<NationalPark>> Get(string name, string location) //ADD MORE!
@@ -35,24 +34,30 @@ namespace NationalParks.Controllers
       {
         query = query.Where(entry => entry.NationalParkLocation == location);
       }
-      
-
       return query.ToList();
     }
 
+    [HttpGet("{id}")]
+    public ActionResult<NationalPark> Get(int id)
+    {
+      return _db.NationalParks.FirstOrDefault(entry => entry.NationalParkId == id);
+    }
+
+    [HttpGet("Random")]
+    public IEnumerable<NationalPark> Random()
+    {
+      var count = _db.NationalParks.Count();
+      Random ran = new Random();
+      int index = ran.Next(count);      
+      return _db.NationalParks.OrderBy(r => Guid.NewGuid()).Skip(index).Take(1);      
+    }
     
     [HttpPost]
     public void Post([FromBody] NationalPark park)
     {
       _db.NationalParks.Add(park);
       _db.SaveChanges();
-    }
-    
-    [HttpGet("{id}")]
-    public ActionResult<NationalPark> Get(int id)
-    {
-      return _db.NationalParks.FirstOrDefault(entry => entry.NationalParkId == id);
-    }
+    }    
     
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] NationalPark park)
@@ -68,14 +73,6 @@ namespace NationalParks.Controllers
       var parkToDelete = _db.NationalParks.FirstOrDefault(entry => entry.NationalParkId == id);
       _db.NationalParks.Remove(parkToDelete);
       _db.SaveChanges();
-    }
-    [HttpGet("Random")]
-    public IEnumerable<NationalPark> Random()
-    {
-      var count = _db.NationalParks.Count();
-      Random ran = new Random();
-      int index = ran.Next(count);      
-      return _db.NationalParks.OrderBy(r => Guid.NewGuid()).Skip(index).Take(1);      
-    }
+    }    
   }
 }

@@ -19,7 +19,6 @@ namespace StateParks.Controllers
     {
       _db = db;
     }
-
     
     [HttpGet] 
     public ActionResult<IEnumerable<StatePark>> Get(string name, string state) //ADD MORE!
@@ -35,24 +34,30 @@ namespace StateParks.Controllers
       {
         query = query.Where(entry => entry.State == state);
       }
-      
-
       return query.ToList();
     }
 
+    [HttpGet("{id}")]
+    public ActionResult<StatePark> Get(int id)
+    {
+      return _db.StateParks.FirstOrDefault(entry => entry.StateParkId == id);
+    }
+
+    [HttpGet("Random")]
+    public IEnumerable<StatePark> Random()
+    {
+      var count = _db.StateParks.Count();
+      Random ran = new Random();
+      int index = ran.Next(count);      
+      return _db.StateParks.OrderBy(r => Guid.NewGuid()).Skip(index).Take(1);      
+    }
     
     [HttpPost]
     public void Post([FromBody] StatePark park)
     {
       _db.StateParks.Add(park);
       _db.SaveChanges();
-    }
-    
-    [HttpGet("{id}")]
-    public ActionResult<StatePark> Get(int id)
-    {
-      return _db.StateParks.FirstOrDefault(entry => entry.StateParkId == id);
-    }
+    }    
     
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] StatePark park)
@@ -68,15 +73,6 @@ namespace StateParks.Controllers
       var parkToDelete = _db.StateParks.FirstOrDefault(entry => entry.StateParkId == id);
       _db.StateParks.Remove(parkToDelete);
       _db.SaveChanges();
-    }
-
-    [HttpGet("Random")]
-    public IEnumerable<StatePark> Random()
-    {
-      var count = _db.StateParks.Count();
-      Random ran = new Random();
-      int index = ran.Next(count);      
-      return _db.StateParks.OrderBy(r => Guid.NewGuid()).Skip(index).Take(1);      
     }
   }
 }
