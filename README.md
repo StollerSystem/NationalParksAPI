@@ -37,8 +37,8 @@ Base URL: `https://localhost:5000`
 GET /api/{component}
 GET /api/{component}/search
 GET /api/{component}/random
-POST /api/{component}
 GET /api/{component}/{id}
+POST /api/{component}
 PUT /api/{component}/{id}
 DELETE /api/{component}/{id}
 
@@ -59,8 +59,8 @@ Access information on national parks in the USA.
 GET /api/nationalparks
 GET /api/nationalparks/search
 GET /api/nationalparks/random
-POST /api/nationalparks
 GET /api/nationalparks/{id}
+POST /api/nationalparks
 PUT /api/nationalparks/{id}
 DELETE /api/nationalparks/{id}
 
@@ -71,6 +71,8 @@ DELETE /api/nationalparks/{id}
 | :---: | :---: | :---: | :---: | --- |
 | name | string | none | false | Return matches that contain name.
 | location | string | none | false | Return matches that contain location. |
+| date | string | none | false | Return matches that contain date. |
+
 
 
 #### Example Query
@@ -106,8 +108,8 @@ Access information about state parks.
 GET /api/stateparks
 GET /api/stateparks/search
 GET /api/stateparks/random
-POST /api/stateparks
 GET /api/stateparks/{id}
+POST /api/stateparks
 PUT /api/stateparks/{id}
 DELETE /api/stateparks/{id}
 
@@ -116,8 +118,8 @@ DELETE /api/stateparks/{id}
 ####  Parameters for /api/stateparks/search
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
-| name | string | none | false | Return matches by name.
-| state | string | none | false | Return matches by state. |
+| name | string | none | false | Return matches that contain name.
+| state | string | none | false | Return matches that contain state. |
 
 
 #### Example Query

@@ -28,7 +28,7 @@ namespace NationalParks.Controllers
     }
 
     [HttpGet("search")] 
-    public ActionResult<IEnumerable<NationalPark>> Search(string name, string location)
+    public ActionResult<IEnumerable<NationalPark>> Search(string name, string location, string date)
     {
       var query = _db.NationalParks.AsQueryable();
 
@@ -40,6 +40,11 @@ namespace NationalParks.Controllers
       if (location != null)
       {
         query = query.Where(entry => entry.NationalParkLocation.Contains(location));
+      }
+
+      if (date != null)
+      {
+        query = query.Where(entry => entry.DateEstablished.Contains(date));
       }
       return query.ToList();
     }
