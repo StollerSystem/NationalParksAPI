@@ -64,7 +64,7 @@ DELETE /api/nationalparks/{id}
 
 ```
 
-#### Path Parameters
+#### GET Path Parameters for /api/nationalparks
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
 | name | string | none | false | Return matches by name.
@@ -110,7 +110,7 @@ DELETE /api/stateparks/{id}
 
 ```
 
-#### Path Parameters
+#### GET Path Parameters for /api/stateparks
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
 | name | string | none | false | Return matches by name.
