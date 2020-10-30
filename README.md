@@ -129,7 +129,7 @@ Will only return state parks that are open year round.
 #### Example Query
 ```
 http://localhost:5000/api/stateparks/yearround/?state=oregon
-
+```
 ### Search EndPoint
 
 ####  Parameters for /api/stateparks/search
@@ -175,8 +175,22 @@ Returns a random state park from the database.
 * Use command 'dotnet ef database update' to scaffold the database for the project.
 * Run the program with 'dotnet run' in the terminal.
 * If you don't have it already, create an "appsettings.json" file in the "ben_stoller" directory and Insert the code below with your user name and password for   MySQL:
-
-
+```
+{
+  "AppSettings": {
+    "Secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Port=3306;database=ben_stoller_npapi;uid=root;pwd=epicodus;"
+  }
+}
+```
 
 ## Known Bugs
 
