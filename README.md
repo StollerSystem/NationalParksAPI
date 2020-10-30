@@ -7,6 +7,7 @@
 ## Description
 
 An API application that lets a user access a database of national and state parks. 
+Once you have obtained a bearer token (see below), you can add search parameters to narrow down your query, add (POST) new entries, edit (PUT) entries and delete them. 
 
 
 ## API Documentation 
@@ -153,7 +154,7 @@ C#/.NET, Entity Framework Core, MySql, Nswag,
 
 ### License
 
-*{Determine the license under which this application can be used.  See below for more details on licensing.}*
+MIT
 
-Copyright (c) 2016 **_{List of contributors or company name}_**
+Copyright (c) 2020 **Ben Stoller**
 
