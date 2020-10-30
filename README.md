@@ -107,6 +107,7 @@ Access information about state parks.
 ```
 GET /api/stateparks
 GET /api/stateparks/search
+GET /api/stateparks/yearround
 GET /api/stateparks/random
 GET /api/stateparks/{id}
 POST /api/stateparks
@@ -114,13 +115,28 @@ PUT /api/stateparks/{id}
 DELETE /api/stateparks/{id}
 
 ```
+### YearRound Endpoint
+
+Will only return state parks that are open year round.
+
+####  Parameters for /api/stateparks/yearround
+| Parameter | Type | Default | Required | Description |
+| :---: | :---: | :---: | :---: | --- |
+| name | string | none | false | Return matches that contain name.
+| state | string | none | false | Return matches that contain state. |
+
+
+#### Example Query
+```
+http://localhost:5000/api/stateparks/yearround/?state=oregon
+
+### Search EndPoint
 
 ####  Parameters for /api/stateparks/search
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
 | name | string | none | false | Return matches that contain name.
 | state | string | none | false | Return matches that contain state. |
-
 
 
 #### Example Query
